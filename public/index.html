@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBI - Maiolini Bussiness Inteligence</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h1>MBI - Maiolini Bussiness Inteligence.</h1>
+            <ul>
+                <li><a href="/">Início</a></li>
+                <li><a href="/pesquisa.html">Pesquisa</a></li>
+                <li><a href="/confronto.html">Auditoria Etiquetas</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Bem-vindo, Administrador !</h2>
+            <p>Aqui está o resumo das etiquetas emitidas.</p>
+        </section>
+        <content>
+            <div id="cards">
+
+                <div class="card blue">
+                    <div class="card-icon">🏷️</div>
+                    <div class="card-content">
+                        <span class="card-title">TOTAL ETIQUETAS</span>
+                        <span class="card-value" id="qtd-total">0</span>
+                        <span class="card-subtitle">Hoje</span>
+                        <span class="card-footer green-text" id="porcentagem-ontem">↑ 0% <span class="gray-text">em
+                                relação a ontem</span></span>
+                    </div>
+                </div>
+
+                <div class="card red">
+                    <div class="card-icon">🥩</div>
+                    <div class="card-content">
+                        <span class="card-title">AÇOUGUE</span>
+                        <span class="card-value" id="qtd-acougue">0</span>
+                        <span class="card-subtitle">Hoje</span>
+                        <span class="card-footer footer-percentage" id="porcentagem-acougue">0% do total</span>
+                    </div>
+                </div>
+
+                <div class="card dark-blue">
+                    <div class="card-icon">🧀</div>
+                    <div class="card-content">
+                        <span class="card-title">FRIOS</span>
+                        <span class="card-value" id="qtd-frios">0</span>
+                        <span class="card-subtitle">Hoje</span>
+                        <span class="card-footer footer-percentage" id="porcentagem-frios">0% do total</span>
+                    </div>
+                </div>
+
+            </div>
+            </div>
+        </content>
+        <content>
+            <div id="charts">
+                <div class="chart-container linha-box">
+                    <div class="chart-header">
+                        <h3>ETIQUETAS EMITIDAS POR HORA</h3>
+                        <select id="chart-filter">
+                            <option value="hoje">Hoje</option>
+                            <option value="ontem">Ontem</option>
+                            <option value="semana">Esta Semana</option>
+                            <option value="15dias">Últimos 15 Dias</option>
+                            <option value="mes">Este Mês</option>
+                            <option value="30dias">Últimos 30 dias</option>
+                        </select>
+                    </div>
+
+                    <!-- Forçando a altura da div pai para o gráfico esticar e preencher o card -->
+                    <div class="chart-body" style="height: 320px; position: relative;">
+                        <canvas id="barChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-container donut-box">
+                    <div class="chart-header">
+                        <h3>PARTICIPAÇÃO POR SETOR</h3>
+                        <select id="donut-filter">
+                            <option value="hoje">Hoje</option>
+                            <option value="ontem">Ontem</option>
+                            <option value="semana">Esta Semana</option>
+                            <option value="15dias">Últimos 15 dias</option>
+                            <option value="mes">Este Mês</option>
+                            <option value="30dias">Últimos 30 dias</option>
+                        </select>
+                    </div>
+
+                    <div class="donut-wrapper">
+                        <canvas id="donutChart"></canvas>
+
+                        <div class="donut-center-text">
+                            <span id="donut-percentage">100%</span>
+                            <span id="donut-label">Total Vendas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </content>
+        <content>
+            <div id="rankings-container">
+
+                <div class="table-card">
+                    <div class="table-header">
+                        <h3>TOP 10 ETIQUETAS EMITIDAS - AÇOUGUE</h3>
+                    </div>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th style="width: 10%;">#</th>
+                                    <th style="width: 50%;">Produto</th>
+                                    <th style="width: 20%;">Código</th>
+                                    <th style="width: 20%; text-align: right;">Etiquetas</th>
+                                </tr>
+                            </thead>
+                            <tbody id="lista-acougue">
+                                <tr>
+                                    <td>1</td>
+                                    <td>Contra Filé Kg</td>
+                                    <td>001042</td>
+                                    <td style="text-align: right; font-weight: 700;">245</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Acém Bovino Kg</td>
+                                    <td>001085</td>
+                                    <td style="text-align: right; font-weight: 700;">189</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Costela Minga Kg</td>
+                                    <td>001120</td>
+                                    <td style="text-align: right; font-weight: 700;">134</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="table-card">
+                    <div class="table-header">
+                        <h3>TOP 10 ETIQUETAS EMITIDAS - FRIOS</h3>
+                    </div>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th style="width: 10%;">#</th>
+                                    <th style="width: 50%;">Produto</th>
+                                    <th style="width: 20%;">Código</th>
+                                    <th style="width: 20%; text-align: right;">Etiquetas</th>
+                                </tr>
+                            </thead>
+                            <tbody id="lista-frios">
+                                <tr>
+                                    <td>1</td>
+                                    <td>Presunto Cozido Sadia Kg</td>
+                                    <td>002011</td>
+                                    <td style="text-align: right; font-weight: 700;">198</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Muçarela Pedaço Kg</td>
+                                    <td>002055</td>
+                                    <td style="text-align: right; font-weight: 700;">167</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Queijo Prato Lanche Kg</td>
+                                    <td>002090</td>
+                                    <td style="text-align: right; font-weight: 700;">95</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </content>
+        <content>
+            <div id="financial-container">
+                <div class="financial-header">
+                    <h3>DESEMPENHO FINANCEIRO ESTIMADO</h3>
+                    <select id="financial-filter">
+                        <option value="hoje">Hoje</option>
+                        <option value="ontem">Ontem</option>
+                        <option value="semana">Esta Semana</option>
+                        <option value="15dias">Últimos 15 Dias</option>
+                        <option value="mes">Este Mês</option>
+                        <option value="30dias">Últimos 30 dias</option>
+                    </select>
+                </div>
+
+                <div class="financial-grid">
+
+                    <div class="financial-section">
+                        <div class="fin-card">
+                            <span class="fin-title">FATURAMENTO AÇOUGUE</span>
+                            <span class="fin-value" id="fat-acougue">R$ 0,00</span>
+                        </div>
+                        <div class="fin-card">
+                            <span class="fin-title">TICKET MÉDIO AÇOUGUE</span>
+                            <span class="fin-value" id="ticket-acougue">R$ 0,00</span>
+                        </div>
+                    </div>
+
+                    <div class="financial-divider"></div>
+
+                    <div class="financial-section">
+                        <div class="fin-card">
+                            <span class="fin-title">FATURAMENTO FRIOS</span>
+                            <span class="fin-value" id="fat-frios">R$ 0,00</span>
+                        </div>
+                        <div class="fin-card">
+                            <span class="fin-title">TICKET MÉDIO FRIOS</span>
+                            <span class="fin-value" id="ticket-frios">R$ 0,00</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </content>
+        <footer class="dashboard-footer">
+            <p>⚠️ Os valores exibidos são estimados e o sistema está em fase de testes.</p>
+            <p>Qualquer dúvida ou erro, favor procurar por <strong>Jean no T.I.</strong> da empresa.</p>
+        </footer>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>

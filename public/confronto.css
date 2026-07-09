@@ -1,0 +1,316 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1a262b;
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    background-color: #1a262b;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin-left: 2em;
+    margin-right: 2em;
+    margin-top: 1em;
+    border-bottom: 2px solid #00bcd4;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+nav h1 {
+    color: #00bcd4;
+    font-size: 35px;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    gap: 20px;
+}
+
+ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    text-align: center;
+}
+
+ul li a{
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    font-size: 22px;
+}
+
+a:hover {
+    color: #00bcd4;
+}
+
+:root {
+    --bg-principal: #0f172a;
+    --bg-card: #1e293b;
+    --bg-input: #334155;
+    --texto-claro: #f8fafc;
+    --texto-mutado: #94a3b8;
+    --azul-accent: #2563eb;
+    --azul-hover: #1d4ed8;
+    --verde-sucesso: #10b981;
+    --vermelho-erro: #ef4444;
+    --laranja-alerta: #f59e0b;
+    --borda: rgba(255, 255, 255, 0.05);
+}
+
+main {
+    margin-top: 1em;
+    margin-left: 2em;
+    margin-right: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+content {
+    margin-top: 1em;
+}
+
+.container {
+    display: flex;
+}
+
+/* Sidebar Estilizada */
+.sidebar {
+    width: 320px;
+    background-color: var(--bg-card);
+    border-right: 1px solid var(--borda);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-area h2 {
+    font-size: 1.3rem;
+    color: var(--texto-claro);
+}
+
+.logo-area p {
+    font-size: 0.85rem;
+    color: var(--texto-mutado);
+}
+
+.divisor {
+    border: 0;
+    height: 1px;
+    background: var(--borda);
+    margin: 1.5rem 0;
+}
+
+.formulario-filtros {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.campo-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.campo-grupo label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--texto-mutado);
+}
+
+.campo-grupo input, .campo-grupo select {
+    background-color: var(--bg-input);
+    border: 1px solid transparent;
+    color: var(--texto-claro);
+    padding: 0.6rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.campo-grupo input:focus, .campo-grupo select:focus {
+    border-color: var(--azul-accent);
+}
+
+/* Botões */
+.btn-primary {
+    background-color: var(--azul-accent);
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: var(--azul-hover);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 1px solid var(--bg-input);
+    color: var(--texto-mutado);
+    padding: 0.6rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+    background-color: var(--bg-input);
+    color: white;
+}
+
+/* Área de Conteúdo */
+.conteudo-principal {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.topo-relatorio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+/* --- Cabeçalho Interno do Relatório (Isolado) --- */
+.topo-confronto {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;            
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.titulo-pagina {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    text-align: left;
+    color: var(--texto-claro);
+}
+
+.status-resumo {
+    display: flex;
+    align-items: center;
+}
+
+.status-card {
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    white-space: nowrap;
+    background-color: rgba(239, 68, 68, 0.15);
+    border: 1px solid var(--vermelho-erro);
+    color: var(--vermelho-erro);
+}
+
+/* Tabela Customizada */
+.tabela-container {
+    background-color: var(--bg-card);
+    border-radius: 8px;
+    border: 1px solid var(--borda);
+    overflow: hidden;
+}
+
+.tabela-confronto {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.95rem;
+}
+
+.tabela-confronto th {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    font-weight: 600;
+    color: var(--texto-mutado);
+    border-bottom: 1px solid var(--borda);
+}
+
+.tabela-confronto td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--borda);
+    color: var(--texto-claro);
+}
+
+.tabela-confronto tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* Badges de Status do Confronto */
+.badge-status {
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-align: center;
+    display: inline-block;
+}
+
+.status-igual {
+    background-color: rgba(16, 185, 129, 0.15);
+    color: var(--verde-sucesso);
+}
+
+.status-sobra {
+    background-color: rgba(245, 158, 11, 0.15);
+    color: var(--laranja-alerta);
+}
+
+.status-falta {
+    background-color: rgba(239, 68, 68, 0.15);
+    color: var(--vermelho-erro);
+}
+
+/* ==========================================================================
+   🚨 NOVOS AJUSTES: Estilização Fina das Colunas de Quantidade e Valor (R$)
+   ========================================================================== */
+
+/* Alinhamento e separação visual das colunas numéricas */
+.col-qtd, .col-vlr {
+    text-align: center !important;
+}
+
+/* Destaque sutil de fundo para agrupar o bloco de Quantidades (Balança / PDV) */
+th.col-qtd, td.col-qtd {
+    background-color: rgba(255, 255, 255, 0.01);
+}
+
+/* Destaque sutil de fundo para agrupar o bloco de Valores em Dinheiro (R$) */
+th.col-vlr, td.col-vlr {
+    background-color: rgba(16, 185, 129, 0.02);
+}
+
+/* Cor de destaque para as colunas de "Diferença" quando houver erro */
+.txt-erro {
+    font-weight: 600;
+}

@@ -1,0 +1,487 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1a262b;
+}
+
+header {
+    background-color: #1a262b;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin-left: 2em;
+    margin-right: 2em;
+    margin-top: 1em;
+    border-bottom: 2px solid #00bcd4;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+nav h1 {
+    color: #00bcd4;
+    font-size: 35px;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    gap: 20px;
+}
+
+ul li {
+    display: flex;
+  justify-content: center; /* Alinha na horizontal (esquerda/direita) */
+  align-items: center;     /* Alinha na vertical (cima/baixo) */
+/* Caso o texto ainda pareça estranho, adicione isso por garantia: */
+  text-align: center;
+}
+
+ul li a{
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    font-size: 22px;
+}
+
+a:hover {
+    color: #00bcd4;
+}
+
+main {
+    margin: 1em 3em;
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+}
+
+p {
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: medium;
+    color: #fff;
+}
+
+section {
+   display: flex;
+   flex-direction: column;
+   gap: 7px;
+}
+
+content {
+    margin-top: 1em;
+}
+
+/* Container que segura os 3 cards restantes */
+#cards {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Estrutura base de cada card (Modificado para Dark Mode) */
+.card {
+  flex: 1;
+  min-width: 250px;
+  background-color: #223137; /* Um pouco mais claro que o background da página */
+  border-radius: 12px;
+  border: 1px solid #2d3f47; /* Borda sutil para dar relevo */
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* O círculo onde fica o ícone */
+.card-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+/* Container dos textos */
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Títulos menores no topo do card */
+.card-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Valor principal (Grande) */
+.card-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff; /* Texto totalmente branco para máximo destaque */
+  line-height: 1;
+}
+
+/* Texto "Hoje" */
+.card-subtitle {
+  font-size: 11px;
+  color: #94a3b8; /* Cinza claro */
+}
+
+/* Rodapé dos cards */
+.card-footer {
+  font-size: 11px;
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+/* Auxiliares de cores de texto para o card Total */
+.gray-text { color: #94a3b8; font-weight: 400; }
+.green-text { color: #4ade80; } /* Verde brilhante para o Dark Mode */
+
+
+/* --- CUSTOMIZAÇÃO DE CORES DOS CARDS (DARK MODE) --- */
+
+/* Card 1: Total Etiquetas (Azul) */
+.card.blue { border-color: #2e445e; }
+.card.blue .card-icon { background-color: rgba(37, 99, 235, 0.2); } /* Fundo azul semi-transparente */
+.card.blue .card-title { color: #60a5fa; } /* Azul claro com bom contraste */
+
+/* Card 2: Açougue (Vermelho) */
+.card.red { border-color: #5a2e31; }
+.card.red .card-icon { background-color: rgba(239, 68, 68, 0.2); } /* Fundo vermelho semi-transparente */
+.card.red .card-title, .card.red .footer-percentage { color: #f87171; } /* Vermelho suave */
+
+/* Card 3: Frios (Azul Claro) */
+.card.dark-blue { border-color: #244b61; }
+.card.dark-blue .card-icon { background-color: rgba(2, 132, 199, 0.2); } /* Fundo ciano semi-transparente */
+.card.dark-blue .card-title, .card.dark-blue .footer-percentage { color: #38bdf8; } /* Ciano/Azul piscina */
+
+#charts {
+    margin-top: 24px;
+    width: 100%;
+    display: flex;
+    gap: 16px;
+    align-items: stretch; /* Mantém a mesma altura nos dois */
+}
+
+/* 1. Modifique a classe geral tirando o "flex: 70" dela */
+.chart-container {
+    background-color: #223137; 
+    border: 1px solid #2d3f47;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+    
+    /* REMOVIDO o flex: 70 daqui para não afetar os dois igualmente */
+}
+
+/* 2. Crie uma classe específica para o gráfico de linha ganhar os 60% ou 70% */
+.linha-box {
+    flex: 70; /* Ocupa 70% da linha */
+    min-width: 300px;
+}
+
+/* 3. Atualize a classe do Donut para ganhar os 30% na CAIXA e não no wrapper */
+/* 1. CORREÇÃO DO DONUT (Forçar o centro e conter o wrapper) */
+.donut-box {
+    flex: 30;
+    min-width: 280px;
+    background-color: #223137;
+    border: 1px solid #2d3f47;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+    
+    /* ADICIONE ISSO: Garante que o conteúdo interno não transborde */
+    display: flex;
+    flex-direction: column;
+}
+
+.donut-wrapper {
+    position: relative;
+    width: 100%;
+    height: 260px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto; /* Centraliza verticalmente dentro do box */
+}
+
+.donut-center-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none; /* Evita que o texto bloqueie o mouseover do gráfico */
+}
+
+
+/* 2. CORREÇÃO DOS CABEÇALHOS E BOTÕES (Separar e clarear) */
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%; /* Ocupa toda a largura do card */
+}
+
+/* Força os títulos dos dois gráficos a ficarem brancos e destacados */
+.chart-header h3 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: #ffffff !important; /* !important garante que nenhuma outra regra mude a cor */
+    letter-spacing: 0.5px;
+}
+#donut-label {
+    color: #94a3b8 !important; /* Cor cinza clara (Slate 400) */
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Aproveita para garantir que o número grande (quantidade) fique branco e destacado */
+#donut-percentage {
+    color: #ffffff !important;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 2px;
+}
+/* Estilização universal para os dois botões de filtro (linha e donut) */
+#chart-filter, #donut-filter {
+    background-color: #1a262b;
+    color: #ffffff;
+    border: 1px solid #2d3f47;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    outline: none;
+}
+
+/* Container das tabelas lado a lado */
+#rankings-container {
+    margin-top: 24px;
+    width: 100%;
+    display: flex;
+    gap: 16px;
+    align-items: stretch; /* Mantém as duas caixas com a mesma altura */
+}
+
+/* O card que envolve cada tabela (mesmo padrão dos seus gráficos) */
+.table-card {
+    flex: 1; /* Faz cada um ocupar exatamente 50% do espaço disponível */
+    min-width: 320px; /* Evita que quebre feio em telas muito pequenas */
+    background-color: #223137;
+    border: 1px solid #2d3f47;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+}
+
+/* Cabeçalho do card da tabela */
+.table-header {
+    margin-bottom: 16px;
+}
+
+.table-header h3 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
+
+/* Garante que se a tabela for maior que a tela, apareça barra de rolagem só nela */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+/* Estilização da tabela em si */
+table {
+    width: 100%;
+    border-collapse: collapse; /* Remove espaços duplos entre as bordas */
+    text-align: left;
+    font-size: 13px;
+}
+
+/* Cabeçalho da tabela */
+th {
+    color: #94a3b8; /* Cor cinza clara para os títulos das colunas */
+    font-weight: 600;
+    padding: 12px 8px;
+    border-bottom: 2px solid #2d3f47; /* Linha divisória mais grossa */
+    text-transform: uppercase;
+    font-size: 11px;
+}
+
+/* Linhas do corpo da tabela */
+td {
+    color: #f1f5f9; /* Texto claro */
+    padding: 12px 8px;
+    border-bottom: 1px solid #2d3f47; /* Linha fina entre os produtos */
+}
+
+/* Efeito visual: deixa as linhas ímpares levemente diferentes (opcional, fica bem moderno) */
+tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* Efeito ao passar o mouse por cima da linha */
+tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Container Principal do Bloco Financeiro */
+#financial-container {
+    margin-top: 24px;
+    background-color: #223137;
+    border: 1px solid #2d3f47;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+}
+
+/* Alinhamento do Título com o Filtro */
+.financial-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.financial-header h3 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
+
+#financial-filter {
+    background-color: #1a262b;
+    color: #ffffff;
+    border: 1px solid #2d3f47;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    outline: none;
+}
+
+/* Grid que segura as duas seções e a barra */
+.financial-grid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+/* Cada metade (Açougue / Frios) */
+.financial-section {
+    flex: 1;
+    display: flex;
+    justify-content: space-around; /* Distribui Faturamento e Ticket horizontalmente */
+    gap: 16px;
+}
+
+/* Estrutura interna de cada dado financeiro */
+.fin-card {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.fin-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: #94a3b8; /* Tom cinza sutil para o rótulo */
+    letter-spacing: 0.5px;
+}
+
+.fin-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+/* Destacando os valores do Açougue com o tom avermelhado e Frios com o azul piscina se preferir */
+#fat-acougue, #ticket-acougue { color: #f87171; }
+#fat-frios, #ticket-frios { color: #38bdf8; }
+
+/* A Barra Vertical de Divisão */
+.financial-divider {
+    width: 1px;
+    height: 50px; /* Altura da linha separadora */
+    background-color: #2d3f47; /* Mesma cor das bordas dos cards */
+}
+
+/* Responsividade simples: se a tela for pequena, quebra em linhas */
+@media (max-width: 768px) {
+    .financial-grid {
+        flex-direction: column;
+    }
+    .financial-divider {
+        width: 100%;
+        height: 1px;
+        margin: 10px 0;
+    }
+    .financial-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+/* Estilização do Rodapé */
+.dashboard-footer {
+    margin-top: 40px;
+    padding: 20px 0;
+    border-top: 1px solid #2d3f47; /* Linha sutil separando o conteúdo do rodapé */
+    text-align: center;
+    font-size: 12px;
+    color: #94a3b8; /* Cor cinza sutil para não chamar mais atenção que os dados */
+    line-height: 1.6;
+}
+
+.dashboard-footer p {
+    margin: 4px 0;
+}
+
+.dashboard-footer strong {
+    color: #ffffff; /* Destaca o nome em branco */
+}

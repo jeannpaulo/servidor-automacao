@@ -1,0 +1,590 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1a262b;
+}
+
+header {
+    background-color: #1a262b;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin-left: 2em;
+    margin-right: 2em;
+    margin-top: 1em;
+    border-bottom: 2px solid #00bcd4;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+nav h1 {
+    color: #00bcd4;
+    font-size: 35px;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    gap: 20px;
+}
+
+ul li {
+    display: flex;
+  justify-content: center; /* Alinha na horizontal (esquerda/direita) */
+  align-items: center;     /* Alinha na vertical (cima/baixo) */
+/* Caso o texto ainda pareça estranho, adicione isso por garantia: */
+  text-align: center;
+}
+
+ul li a{
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    font-size: 22px;
+}
+
+a:hover {
+    color: #00bcd4;
+}
+
+main {
+    margin: 1em 3em;
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+}
+
+p {
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: medium;
+    color: #fff;
+}
+
+section {
+   display: flex;
+   flex-direction: column;
+   gap: 7px;
+}
+
+content {
+    margin-top: 1em;
+}
+
+/* Container Principal dos Filtros */
+.container-filtros {
+    background-color: #22343c; /* Fundo dos cards do seu tema */
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.container-filtros h2 {
+    color: #ffffff;
+    font-size: 1.1rem;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Grid Layout - 3 colunas fluídas */
+.grid-filtros {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    align-items: flex-end;
+}
+
+/* Elementos de Input e Labels */
+.grupo-input {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.grupo-input label {
+    color: #94a3b8; /* Texto secundário acinzentado */
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.grupo-input input, 
+.grupo-input select {
+    background-color: #1a262b; /* Fundo mais escuro para os inputs */
+    border: 1px solid #2d3f47;
+    border-radius: 6px;
+    color: #ffffff;
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+    height: 42px;
+    box-sizing: border-box;
+}
+
+.grupo-input input:focus, 
+.grupo-input select:focus {
+    border-color: #2563eb; /* Azul de destaque igual ao gráfico */
+}
+
+/* Campo de busca com ícone de Lupa */
+.campo-busca .input-icone {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.campo-busca .input-icone input {
+    width: 100%;
+    padding-right: 35px;
+}
+
+.campo-busca .icone-lupa {
+    position: absolute;
+    right: 12px;
+    color: #64748b;
+    pointer-events: none;
+    font-size: 0.95rem;
+}
+
+/* Configuração do Range de Datas */
+.datas-inline {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.datas-inline input[type="date"] {
+    flex: 1;
+    width: 100%;
+}
+
+.datas-inline span {
+    color: #94a3b8;
+    font-weight: bold;
+}
+
+.grupo-botoes-container {
+    grid-column: 1 / -1; /* Faz esse bloco ocupar as 3 colunas da linha */
+    display: flex;
+    justify-content: flex-end; /* Empurra os botões para a extrema direita */
+    margin-top: 5px;
+}
+
+/* Bloco de Botões alinhados à direita */
+.grupo-botoes {
+    display: flex;
+    gap: 12px;
+    height: 42px;
+}
+
+/* Botões Estilizados */
+.grupo-botoes button {
+    padding: 0 20px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s, transform 0.1s;
+    height: 100%;
+}
+
+.grupo-botoes button:active {
+    transform: scale(0.98);
+}
+
+.btn-primario {
+    background-color: #2563eb; /* Azul padrão */
+    color: #ffffff;
+}
+
+.btn-primario:hover {
+    background-color: #1d4ed8;
+}
+
+.btn-secundario {
+    background-color: transparent;
+    border: 1px solid #2d3f47 !important;
+    color: #f1f5f9;
+}
+
+.btn-secundario:hover {
+    background-color: #1a262b;
+}
+
+/* Responsividade para telas menores (Tablets/Celulares) */
+@media (max-width: 900px) {
+    .grid-filtros {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .grid-filtros {
+        grid-template-columns: 1fr;
+    }
+    .grupo-botoes {
+        justify-content: space-between;
+    }
+    .grupo-botoes button {
+        flex: 1;
+    }
+}
+
+/* Container de colunas (Dividido em 75% / 25%) */
+.layout-resultado-colunas {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+/* Lado Esquerdo - Ocupa 75% */
+.container-resultados {
+    flex: 0 0 75%;
+    width: 75%;
+    background-color: #22343c;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+/* Lado Direito - Ocupa o restante (25%) */
+.container-lateral-reservado {
+    flex: 1; /* Pega o resto do espaço disponível */
+    background-color: #22343c;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    border: 2px dashed #2d3f47; /* Borda pontilhada temporária indicando reserva */
+}
+
+/* Cabeçalho da área de resultados */
+.topo-resultados {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.topo-resultados h2 {
+    color: #ffffff;
+    font-size: 1.1rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+.topo-resultados span {
+    color: #94a3b8;
+    font-size: 0.85rem;
+}
+
+/* Controle de scroll da tabela */
+.table-wrapper {
+    overflow-x: auto;
+    width: 100%;
+}
+
+/* Estilização da Tabela */
+.tabela-pesquisa {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.9rem;
+    color: #f1f5f9;
+}
+
+.tabela-pesquisa th {
+    background-color: #1a262b;
+    color: #94a3b8;
+    padding: 12px 16px;
+    font-weight: 600;
+    border-bottom: 2px solid #2d3f47;
+}
+
+.tabela-pesquisa td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #2d3f47;
+}
+
+/* Efeito Zebrado suave nas linhas */
+.tabela-pesquisa tbody tr:nth-child(even) {
+    background-color: rgba(26, 38, 43, 0.3);
+}
+
+.tabela-pesquisa tbody tr:hover {
+    background-color: rgba(37, 99, 235, 0.1); /* Destaque azul ao passar o mouse */
+}
+
+/* Badges de Setor (Açougue / Frios) */
+.badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: inline-block;
+}
+
+.badge-acougue {
+    background-color: rgba(248, 113, 113, 0.15);
+    color: #f87171; /* Vermelho do seu tema */
+    border: 1px solid rgba(248, 113, 113, 0.3);
+}
+
+.badge-frios {
+    background-color: rgba(56, 189, 248, 0.15);
+    color: #38bdf8; /* Azul claro do seu tema */
+    border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+/* Paginação no rodapé */
+.rodape-paginacao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #2d3f47;
+}
+
+.itens-por-pagina select {
+    background-color: #1a262b;
+    border: 1px solid #2d3f47;
+    color: #ffffff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    outline: none;
+    cursor: pointer;
+}
+
+.paginacao-botoes {
+    display: flex;
+    gap: 6px;
+}
+
+.btn-pag {
+    background-color: #1a262b;
+    border: 1px solid #2d3f47;
+    color: #f1f5f9;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.btn-pag:hover {
+    border-color: #2563eb;
+    color: #2563eb;
+}
+
+.btn-pag.ativo {
+    background-color: #2563eb;
+    border-color: #2563eb;
+    color: #ffffff;
+}
+
+/* Ajuste de responsividade para telas pequenas */
+@media (max-width: 1100px) {
+    .layout-resultado-colunas {
+        flex-direction: column;
+    }
+    .container-resultados, 
+    .container-detalhes-etiqueta {
+        width: 100%;
+        flex: 1 0 100%;
+    }
+}
+
+/* Lado Direito - Card de Detalhes da Etiqueta */
+/* Lado Direito - Card de Detalhes da Etiqueta */
+.container-detalhes-etiqueta {
+    flex: 0 0 25%;
+    width: 25%;
+    background-color: #22343c;
+    border-radius: 8px;
+    padding: 22px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Topo do Card */
+.topo-detalhes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #2d3f47;
+}
+
+.topo-detalhes h2 {
+    color: #ffffff;
+    font-size: 1.2rem; /* Aumentado ligeiramente */
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Novo container do ícone SVG */
+.icone-barcode-svg {
+    background-color: #1a262b;
+    border: 1px solid #2d3f47;
+    border-radius: 6px;
+    padding: 6px;
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Lista de Informações */
+.bloco-info-detalhes {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* Ajuste no espaçamento das linhas */
+}
+
+/* NOVA CLASSE: Força rótulo e valor na mesma linha (Lado a Lado) */
+.linha-detalhe-inline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(45, 63, 71, 0.4); /* Linha divisória sutil entre itens */
+}
+
+/* Remove a borda inferior do último item para acabamento */
+.bloco-info-detalhes .linha-detalhe-inline:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+/* Configuração de Fontes Maiores */
+.label-detalhe {
+    color: #94a3b8;
+    font-size: 0.95rem; /* Aumentado de 0.85 para 0.95 */
+    font-weight: 500;
+    flex: 1;
+    white-space: nowrap;
+    padding-right: 10px;
+}
+
+.valor-detalhe {
+    color: #ffffff;
+    font-size: 1rem; /* Aumentado de 0.95 para 1rem */
+    font-weight: 500;
+    text-align: right;
+}
+
+.nome-produto-destaque {
+    font-weight: 700;
+    color: #f8fafc;
+}
+
+/* Destaque do Valor em Dinheiro */
+.faturamento-verde {
+    color: #4ade80 !important; /* Verde mais vivo */
+    font-weight: 700;
+    font-size: 1.15rem;
+}
+
+/* Ajuste específico para a linha do EAN conseguir espaço */
+.ean-linha-completa {
+    flex-direction: column;
+    align-items: stroke;
+    gap: 8px;
+}
+
+/* Caixa com fundo escuro para o EAN */
+.input-copiar-wrapper {
+    display: flex;
+    align-items: center;
+    background-color: #1a262b;
+    border: 1px solid #2d3f47;
+    border-radius: 6px;
+    padding: 8px 12px;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.destaque-caixa {
+    font-family: monospace;
+    font-size: 1.05rem;
+    letter-spacing: 0.5px;
+}
+
+.btn-copiar {
+    background: transparent;
+    border: none;
+    color: #64748b;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    transition: color 0.2s;
+}
+
+.btn-copiar:hover {
+    color: #2563eb;
+}
+
+/* Responsivo */
+@media (max-width: 1100px) {
+    .container-detalhes-etiqueta {
+        width: 100%;
+        flex: 1 0 100%;
+    }
+}
+
+/* Estilização do Rodapé */
+.dashboard-footer {
+    margin-top: 40px;
+    padding: 20px 0;
+    border-top: 1px solid #2d3f47; /* Linha sutil separando o conteúdo do rodapé */
+    text-align: center;
+    font-size: 12px;
+    color: #94a3b8; /* Cor cinza sutil para não chamar mais atenção que os dados */
+    line-height: 1.6;
+}
+
+.dashboard-footer p {
+    margin: 4px 0;
+}
+
+.dashboard-footer strong {
+    color: #ffffff; /* Destaca o nome em branco */
+}
+
+/* Realce para a linha que foi clicada e selecionada pelo operador */
+#corpo-tabela-pesquisa tr.linha-selecionada {
+    background-color: rgba(37, 99, 235, 0.25) !important;
+    border-left: 4px solid #2563eb;
+}

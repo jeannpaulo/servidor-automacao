@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balança X PDV's</title>
+    <link rel="stylesheet" href="confronto.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h1>MBI - Maiolini Bussiness Inteligence.</h1>
+            <ul>
+                <li><a href="/index.html">Início</a></li>
+                <li><a href="/pesquisa.html">Pesquisa</a></li>
+                <li><a href="/confronto.html">Auditoria Etiquetas</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <content>
+            <div class="container">
+                <!-- Painel Lateral de Filtros e Busca -->
+                <aside class="sidebar">
+                    <div class="logo-area">
+                        <h2>📊 Auditoria</h2>
+                        <p>Confronto Balança x PDV</p>
+                    </div>
+
+                    <hr class="divisor">
+
+                    <div class="formulario-filtros">
+                        <div class="campo-grupo">
+                            <label for="conf-data-inicio">Data Inicial</label>
+                            <input type="date" id="conf-data-inicio">
+                        </div>
+
+                        <div class="campo-grupo">
+                            <label for="conf-data-fim">Data Final</label>
+                            <input type="date" id="conf-data-fim">
+                        </div>
+
+                        <div class="campo-grupo">
+                            <label for="conf-codigo">Código (EAN ou Interno)</label>
+                            <input type="text" id="conf-codigo" placeholder="Ex: 2078300011581" autocomplete="off">
+                        </div>
+
+                        <div class="campo-grupo">
+                            <label for="conf-setor">Setor Principal</label>
+                            <select id="conf-setor">
+                                <option value="todos">Todos os Setores</option>
+                                <option value="acougue">Açougue</option>
+                                <option value="frios">Frios</option>
+                            </select>
+                        </div>
+
+                        <button id="btn-confrontar" class="btn-primary">⚡ Executar Confronto</button>
+                        <button id="btn-limpar-conf" class="btn-secondary">Limpar Filtros</button>
+                    </div>
+                </aside>
+
+                <!-- Área Principal do Relatório -->
+                <main class="conteudo-principal">
+                    <div class="topo-confronto">
+                        <div class="titulo-pagina">
+                            <h1>Divergência de Movimentação</h1>
+                            <p>Comparativo em tempo real entre bipes registrados na balança e vendas computadas no PDV</p>
+                        </div>
+                        <div class="status-resumo">
+                            <span class="status-card demerito">Divergências: <strong id="qtd-divergencias">0</strong></span>
+                        </div>
+                    </div>
+
+                    <!-- Tabela de Resultados do Confronto (Sem os cards, focada no duplo método) -->
+                    <div class="tabela-container">
+                        <table class="tabela-confronto">
+                            <thead>
+                                <tr>
+                                    <th>Código Interno</th>
+                                    <th>Código EAN</th>
+                                    <th>Descrição do Produto</th>
+                                    
+                                    <!-- Bloco de Quantidade de Etiquetas -->
+                                    <th class="col-qtd">Balança (Qtd)</th>
+                                    <th class="col-qtd">PDV (Qtd)</th>
+                                    <th class="col-qtd txt-erro">Dif. Qtd</th>
+                                    
+                                    <!-- Bloco de Valores em R$ -->
+                                    <th class="col-vlr">Balança (R$)</th>
+                                    <th class="col-vlr">PDV (R$)</th>
+                                    <th class="col-vlr txt-erro">Dif. R$</th>
+                                    
+                                    <th style="text-align: center;">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="corpo-tabela-confronto">
+                                <tr>
+                                    <td colspan="10" style="text-align: center; color: #94a3b8; padding: 2rem;">
+                                        Preencha os filtros ao lado e clique em Executar Confronto.
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </main>
+            </div>
+        </content>
+        <script src="confronto.js"></script>
+    </main>
+</body>
+
+</html>

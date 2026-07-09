@@ -1,0 +1,16 @@
+# Dependências pesadas
+node_modules/
+
+# Bancos de dados locais (dados reais do mercado)
+*.db
+*.db-journal
+
+# Arquivos de dados/planilhas temporárias
+*.csv
+
+# Arquivo de variáveis de ambiente com senhas futuras
+.env
+
+# Logs do sistema e do daemon do windows
+daemon/
+*.log

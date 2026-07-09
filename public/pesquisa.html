@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBI - Pesquisa</title>
+    <link rel="stylesheet" href="pesquisa.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h1>MBI - Maiolini Bussiness Inteligence.</h1>
+            <ul>
+                <li><a href="/index.html">Início</a></li>
+                <li><a href="/pesquisa.html">Pesquisa</a></li>
+                <li><a href="/confronto.html">Auditoria Etiquetas</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Pesquisar Etiquetas</h2>
+            <p>Consulte as etiquetas emitidas no sistema.</p>
+        </section>
+        <content>
+            <div class="container-filtros">
+                <h2>Filtros de Pesquisa</h2>
+
+                <div class="grid-filtros">
+                    <!-- Linha 1 -->
+                    <div class="campo-busca grupo-input">
+                        <label for="busca-termo">Buscar por (EAN / Nome)</label>
+                        <div class="input-icone">
+                            <input type="text" id="busca-termo" placeholder="Digite o código EAN ou termo...">
+                            <span class="icone-lupa">&#128269;</span>
+                        </div>
+                    </div>
+
+                    <div class="grupo-input">
+                        <label for="filtro-setor">Setor</label>
+                        <select id="filtro-setor">
+                            <option value="todos">Todos os setores</option>
+                            <option value="acougue">Açougue</option>
+                            <option value="frios">Frios</option>
+                        </select>
+                    </div>
+
+                    <div class="grupo-input">
+                        <label for="filtro-leitor">Leitor / Balança</label>
+                        <select id="filtro-leitor">
+                            <option value="todos">Todos os leitores</option>
+                            <option value="LEITOR_ACOUGUE_01">01 Açougue</option>
+                            <option value="LEITOR_ACOUGUE_02">02 Açougue</option>
+                            <option value="LEITOR_FRIOS_01">01 Frios</option>
+                            <option value="LEITOR_FRIOS_02">02 Frios</option>
+                            <option value="LEITOR_FRIOS_03">03 Frios</option>
+                        </select>
+                    </div>
+
+                    <!-- Linha 2 -->
+                    <div class="grupo-input">
+                        <label for="busca-produto">Produto</label>
+                        <input type="text" id="busca-produto" placeholder="Digite o nome do produto">
+                    </div>
+
+                    <div class="grupo-input">
+                        <label for="busca-interno">Código Interno</label>
+                        <input type="text" id="busca-interno" placeholder="Digite o código interno">
+                    </div>
+
+                    <div class="grupo-input">
+                        <label>Período</label>
+                        <div class="datas-inline">
+                            <input type="date" id="data-inicio">
+                            <span>&rarr;</span>
+                            <input type="date" id="data-fim">
+                        </div>
+                    </div>
+
+                    <!-- Linha 3 (Botões isolados e empurrados para a direita) -->
+                    <div class="grupo-botoes-container">
+                        <div class="grupo-botoes">
+                            <button id="btn-limpar" class="btn-secundario">Limpar filtros</button>
+                            <button id="btn-pesquisar" class="btn-primario">Pesquisar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </content>
+        <content>
+            <!-- Área principal que divide a tela: 75% Esquerda / 25% Direita -->
+            <div class="layout-resultado-colunas">
+
+                <!-- LADO ESQUERDO: Resultados da Pesquisa (75%) -->
+                <div class="container-resultados">
+                    <div class="topo-resultados">
+                        <h2>Resultados da Pesquisa</h2>
+                        <span id="total-registros">Total encontrado: <strong id="qtd-registros">0</strong>
+                            registros</span>
+                    </div>
+
+                    <!-- Wrapper para garantir que a tabela role de lado se a tela diminuir -->
+                    <div class="table-wrapper">
+                        <table class="tabela-pesquisa">
+                            <thead>
+                                <tr>
+                                    <th>Data/Hora</th>
+                                    <th>Código EAN-13</th>
+                                    <th>Código Interno</th>
+                                    <th>Produto</th>
+                                    <th style="text-align: center;">Setor</th>
+                                    <th style="text-align: right;">Valor (R$)</th>
+                                    <th style="text-align: center;">Balança</th>
+                                </tr>
+                            </thead>
+                            <tbody id="corpo-tabela-pesquisa">
+                                <!-- Linhas estáticas de exemplo (O JS vai limpar e injetar aqui) -->
+                                <tr>
+                                    <td>30/06/2026 15:15:32</td>
+                                    <td>2078300011581</td>
+                                    <td>783</td>
+                                    <td>Coxão Mole</td>
+                                    <td style="text-align: center;"><span class="badge badge-acougue">AÇOUGUE</span>
+                                    </td>
+                                    <td style="text-align: right; font-weight: 700;">11,58</td>
+                                    <td style="text-align: center;">01_acougue</td>
+                                </tr>
+                                <tr>
+                                    <td>30/06/2026 15:14:21</td>
+                                    <td>2076300013901</td>
+                                    <td>763</td>
+                                    <td>Contra Filé</td>
+                                    <td style="text-align: center;"><span class="badge badge-acougue">AÇOUGUE</span>
+                                    </td>
+                                    <td style="text-align: right; font-weight: 700;">29,87</td>
+                                    <td style="text-align: center;">02_acougue</td>
+                                </tr>
+                                <tr>
+                                    <td>30/06/2026 15:10:44</td>
+                                    <td>2781200011123</td>
+                                    <td>812</td>
+                                    <td>Peito de Frango</td>
+                                    <td style="text-align: center;"><span class="badge badge-frios">FRIOS</span></td>
+                                    <td style="text-align: right; font-weight: 700;">8,45</td>
+                                    <td style="text-align: center;">01_frios</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Rodapé com Paginação igual à imagem -->
+                    <div class="rodape-paginacao">
+                        <div class="itens-por-pagina">
+                            <select id="limite-pagina">
+                                <option value="10">10 por página</option>
+                                <option value="20">20 por página</option>
+                                <option value="50">50 por página</option>
+                            </select>
+                        </div>
+
+                        <div class="paginacao-botoes" id="controles-paginacao">
+                            <button class="btn-pag">&lt;</button>
+                            <button class="btn-pag ativo">1</button>
+                            <button class="btn-pag">2</button>
+                            <button class="btn-pag">3</button>
+                            <button class="btn-pag">&gt;</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LADO DIREITO: Reservado para os seus próximos 25% -->
+                <!-- LADO DIREITO: Detalhes da Etiqueta Selecionada (25%) -->
+                <!-- LADO DIREITO: Detalhes da Etiqueta Selecionada (25%) -->
+                <div class="container-detalhes-etiqueta">
+                    <div class="topo-detalhes">
+                        <h2>Detalhes da Etiqueta</h2>
+                        <!-- Ícone de Código de Barras em SVG Real -->
+                        <span class="icone-barcode-svg">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 5v14M6 5v14M10 5v14M14 5v14M18 5v14M21 5v14" />
+                            </svg>
+                        </span>
+                    </div>
+
+                    <div class="bloco-info-detalhes">
+                        <!-- Campo EAN modificado para inline -->
+                        <div class="linha-detalhe-inline ean-linha-completa">
+                            <span class="label-detalhe">Código EAN-13</span>
+                            <div class="input-copiar-wrapper">
+                                <span id="detalhe-ean" class="valor-detalhe destaque-caixa">2078300011581</span>
+                                <button id="btn-copiar-ean" class="btn-copiar" title="Copiar EAN">
+                                    <!-- Ícone de Copiar/Clone em SVG -->
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="linha-detalhe-inline">
+                            <span class="label-detalhe">Código Interno</span>
+                            <span id="detalhe-interno" class="valor-detalhe">783</span>
+                        </div>
+
+                        <div class="linha-detalhe-inline">
+                            <span class="label-detalhe">Produto</span>
+                            <span id="detalhe-nome" class="valor-detalhe nome-produto-destaque">Coxão Mole</span>
+                        </div>
+
+                        <div class="linha-detalhe-inline">
+                            <span class="label-detalhe">Descrição</span>
+                            <span id="detalhe-descricao" class="valor-detalhe">Coxão Mole Bovino</span>
+                        </div>
+
+                        <div class="linha-detalhe-inline">
+                            <span class="label-detalhe">Setor</span>
+                            <div>
+                                <span id="detalhe-setor" class="badge badge-acougue">AÇOUGUE</span>
+                            </div>
+                        </div>
+
+                        <div class="linha-detalhe-inline">
+                            <span class="label-detalhe">Valor (R$)</span>
+                            <span id="detalhe-valor" class="valor-detalhe faturamento-verde">11,58</span>
+                        </div>
+
+                        <div class="linha-detalhe-inline">
+                            <span class="label-detalhe">Data/Hora</span>
+                            <span id="detalhe-data" class="valor-detalhe">30/06/2026 15:15:32</span>
+                        </div>
+
+                        <div class="linha-detalhe-inline">
+                            <span class="label-detalhe">Balança / Equip.</span>
+                            <span id="detalhe-balanca" class="valor-detalhe">01_acougue</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </content>
+        <footer class="dashboard-footer">
+            <p>⚠️ Os valores exibidos são estimados e o sistema está em fase de testes.</p>
+            <p>Qualquer dúvida ou erro, favor procurar por <strong>Jean no T.I.</strong> da empresa.</p>
+        </footer>
+    </main>
+    <script src="pesquisa.js"></script>
+</body>
+
+</html>
